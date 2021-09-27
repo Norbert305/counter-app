@@ -12,4 +12,19 @@ import "../styles/index.scss";
 import Home from "./component/home.jsx";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+// ReactDOM.render(<Home />, document.querySelector("#app"));
+
+import { Counter } from "./component/counter";
+
+//render your react application
+const start = Date.now();
+
+setInterval(() => {
+	const millis = Date.now() - start;
+
+	const seconds = Math.floor(millis / 1000);
+	ReactDOM.render(
+		<Counter seconds={seconds} />,
+		document.querySelector("#app")
+	);
+}, 1000);
